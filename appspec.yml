@@ -4,9 +4,11 @@ os: linux
 hooks:
   ApplicationStop:
     - location: scripts/stop_container.sh
-      timeout: 3m
-         sudo: yes
+      timeout: 300
+      runas: root
+      sudo: yes
   AfterInstall:
     - location: scripts/start_container.sh
-      timeout: 3m
+      timeout: 300
+      runas: root
       sudo: yes
