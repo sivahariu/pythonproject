@@ -11,7 +11,11 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 # Copy the application code into the container
-COPY . .
+COPY .
+
+#Update the permissions of a start and stop scripts
+RUN chmod +x stop_container.sh
+RUN chmod +x start_container.sh
 
 # Expose the port the Flask application will be listening on
 EXPOSE 5000
